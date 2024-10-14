@@ -27,7 +27,8 @@ At the moment there is no CICD build setup. Therefore, to build and publish the 
 - Adapt the version in the `package.json` files
 - Build the library: `ng build --configuration production --project ng-bootstrap-form-validation`
 - Go to the `dist` folder: `cd .\dist\ng-bootstrap-form-validation\` 
-- Run `npm publish --access public` (use your `AD` credentials)
+- Login to npm registry `npm login --registry http://npm.kwsoft.local/repository/npm-hosted/` (see `Keepass` for credentials)
+- Run `npm publish --access public`
 
 ### Local Development and Linking
 

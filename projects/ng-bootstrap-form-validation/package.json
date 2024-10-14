@@ -12,7 +12,7 @@
     "tslib": "^2.4.0"
   },
   "publishConfig": {
-    "registry": "http://npm.kwsoft.local/"
+    "registry": "http://npm.kwsoft.local/repository/npm-hosted/"
   }
 }
 
