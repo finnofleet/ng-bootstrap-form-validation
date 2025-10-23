@@ -24,7 +24,7 @@ At the moment there is no CICD build setup. Therefore, to build and publish the 
 
 - Verify `pnpm run test`, `pnpm run lint` run successfully
 - Verify demo application at `pnpm start` starts and works
-- Adapt the version in the `package.json` files
+- Adapt the version in the [package.json](package.json) and [projects/ng-bootstrap-form-validation/package.json](projects/ng-bootstrap-form-validation/package.json) files
 - Build the library: `ng build --configuration production --project ng-bootstrap-form-validation`
 - Go to the `dist` folder: `cd .\dist\ng-bootstrap-form-validation\`
 - Login to npm registry `pnpm login --registry http://npm.kwsoft.local/repository/npm-hosted/` (see `Keepass` for credentials)
