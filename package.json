@@ -1,6 +1,6 @@
 {
   "name": "@kwsoft/ng-bootstrap-form-validation",
-  "version": "18.0.0",
+  "version": "20.0.0",
   "engine": {
     "node": ">=18.0.0"
   },
