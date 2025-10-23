@@ -3,15 +3,16 @@ import { BootstrapVersion } from "../../../projects/ng-bootstrap-form-validation
 import { BOOTSTRAP_VERSION } from "../../../projects/ng-bootstrap-form-validation/src/lib/Tokens/tokens";
 
 @Component({
-  selector: "app-bootstrap-three",
-  templateUrl: "./bootstrap-three.component.html",
-  styleUrls: ["./bootstrap-three.component.css"],
-  providers: [
-    {
-      provide: BOOTSTRAP_VERSION,
-      useValue: BootstrapVersion.Three
-    }
-  ]
+    selector: "app-bootstrap-three",
+    templateUrl: "./bootstrap-three.component.html",
+    styleUrls: ["./bootstrap-three.component.css"],
+    providers: [
+        {
+            provide: BOOTSTRAP_VERSION,
+            useValue: BootstrapVersion.Three
+        }
+    ],
+    standalone: false
 })
 export class BootstrapThreeComponent implements OnInit, OnDestroy {
   link: HTMLLinkElement;

@@ -1,6 +1,6 @@
 # @kwsoft/ng-bootstrap-form-validation
 
-An Angular module that makes Bootstrap form validation easy. 
+An Angular module that makes Bootstrap form validation easy.
 
 Check out [the demo](https://third774.github.io/ng-bootstrap-form-validation)!
 
@@ -11,46 +11,46 @@ This repository is only for internal usage and not published to the public npm r
 The module is forked from [creamteam-de/ng-bootstrap-form-validation](https://github.com/creamteam-de/ng-bootstrap-form-validation).
 The fork
 
-- upgrades angular to v13 -> v18
+- upgrades angular to v13 -> v20
 - fixes bugs:
   - conflicting types for `@Input() formControl` in [this commit](https://github.com/kwsoft/ng-bootstrap-form-validation/commit/8f869e5a2b8494ccc2eb4599f8c733228b505466). ([Original Issue](https://github.com/third774/ng-bootstrap-form-validation/issues/103))
   - custom provided error messages not available in lazy loaded components in [this commit](https://github.com/kwsoft/ng-bootstrap-form-validation/commit/7ab8a9699374fdaee30a42746591fdc0940f0e79)
   - does not trigger a value change event on submit
-- configures the kwsoft npm registry 
+- configures the kwsoft npm registry
 
 ### Build and Publish
 
 At the moment there is no CICD build setup. Therefore, to build and publish the library to the internal @kwsoft registry follow these steps:
 
-- Verify `npm run test`, `npm run lint` run successfully
-- Verify demo application at `npm start` starts and works
+- Verify `pnpm run test`, `pnpm run lint` run successfully
+- Verify demo application at `pnpm start` starts and works
 - Adapt the version in the `package.json` files
 - Build the library: `ng build --configuration production --project ng-bootstrap-form-validation`
-- Go to the `dist` folder: `cd .\dist\ng-bootstrap-form-validation\` 
-- Login to npm registry `npm login --registry http://npm.kwsoft.local/repository/npm-hosted/` (see `Keepass` for credentials)
-- Run `npm publish --access public`
+- Go to the `dist` folder: `cd .\dist\ng-bootstrap-form-validation\`
+- Login to npm registry `pnpm login --registry http://npm.kwsoft.local/repository/npm-hosted/` (see `Keepass` for credentials)
+- Run `pnpm publish --access public`
 
 ### Local Development and Linking
 
 To link the library to use it in the branding module or another library follow these steps:
 
-1. Build the library using `npm run build:watch` (this builds the library in a watch mode)
-1. To link the library `npm run link`
-1. Open the module in which you want to consume the library (e.g. probably `@kwsoft/common-ng-form`) and run `npm link @kwsoft/ng-bootstrap-form-validation`
+1. Build the library using `pnpm run build:watch` (this builds the library in a watch mode)
+1. To link the library `pnpm run link`
+1. Open the module in which you want to consume the library (e.g. probably `@kwsoft/common-ng-form`) and run `pnpm link @kwsoft/ng-bootstrap-form-validation`
 
 ## Install
 
-1) Install by running `npm install @kwsoft/ng-bootstrap-form-validation --save`
+1) Install by running `pnpm install @kwsoft/ng-bootstrap-form-validation --save`
 
 2) Add `NgBootstrapFormValidationModule.forRoot()` to your `app.module.ts` imports:
 
 ```ts
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule , ReactiveFormsModule} from '@angular/forms';
-import { AppComponent } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AppComponent} from './app.component';
 
-import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
+import {NgBootstrapFormValidationModule} from 'ng-bootstrap-form-validation';
 
 @NgModule({
   declarations: [
@@ -65,16 +65,17 @@ import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
 ```
 
 3) Add `NgBootstrapFormValidationModule` to other modules in your application:
 
 ```ts
-import { NgModule } from '@angular/core';
-import { OtherComponent } from './other.component';
+import {NgModule} from '@angular/core';
+import {OtherComponent} from './other.component';
 
-import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
+import {NgBootstrapFormValidationModule} from 'ng-bootstrap-form-validation';
 
 @NgModule({
   declarations: [
@@ -84,14 +85,15 @@ import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
     NgBootstrapFormValidationModule
   ]
 })
-export class OtherModule { }
+export class OtherModule {
+}
 ```
 
 **Note:**
 If you are only using a single (`app`) module, then you will need to import both:
 
 ```ts
-import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
+import {NgBootstrapFormValidationModule} from 'ng-bootstrap-form-validation';
 
 @NgModule({
   declarations: [
@@ -99,13 +101,14 @@ import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
   ],
   imports: [
     ...
-    NgBootstrapFormValidationModule.forRoot(),
+      NgBootstrapFormValidationModule.forRoot(),
     NgBootstrapFormValidationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
 ```
 
 ## Basics
@@ -115,6 +118,7 @@ export class AppModule { }
 By default, the validators found on the `Validators` class from `@angular/forms` module are handled for you out of the box. All you need to do is import the module.
 
 ### Usage
+
 ng-bootstrap-form-validation works by using the `form-group` Bootstrap class on your divs as component selector, and projecting the content into a component which handles form validation feedback for you.
 
 The `has-error` and `has-success` classes are automatically added or removed to your `form-group` based on whether or not the input is valid, and is both `touched` and `dirty`.
@@ -164,7 +168,9 @@ export class BasicExampleComponent implements OnInit {
 ```
 
 `basic-example.component.html`
+
 ```html
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <form [formGroup]="formGroup" (validSubmit)="onSubmit()">
@@ -188,7 +194,9 @@ export class BasicExampleComponent implements OnInit {
 Note: the `<bfv-messsages></bfv-messages>` component still *must* be placed within the `<div class="form-group">`.
 
 `basic-example.component.html`
+
 ```html
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <form class="form-horizontal" [formGroup]="formGroup" (validSubmit)="onSubmit()">
@@ -220,6 +228,7 @@ Note: the `<bfv-messsages></bfv-messages>` component still *must* be placed with
 You can provide an `ErrorMessage` array via the `CUSTOM_ERROR_MESSAGES` multi-provider in your module to provide custom errors across your module/app. In order for this to be AOT compatable, the function definitions **must** be exported. see below for an example
 
 `custom-errors.ts`
+
 ```ts
 import {ErrorMessage} from "ng-bootstrap-form-validation";
 
@@ -243,11 +252,12 @@ export function emailFormat(label: string, error: any): string {
 ```
 
 `app.module.ts`
+
 ```ts
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {
   NgBootstrapFormValidationModule,
   CUSTOM_ERROR_MESSAGES
@@ -285,6 +295,7 @@ you can provide custom error messages to a specific control by binding to the
 example above, we can provide a one time custom error message to a specific `.form-group`. Unlike the global custom error messages, these functions do not need to be individually exported.
 
 `custom-error-example.component.ts`
+
 ```ts
 import {Component, OnInit} from "@angular/core";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
@@ -335,7 +346,9 @@ export class CustomErrorsComponent implements OnInit {
 ```
 
 `custom-error-example.component.html`
+
 ```html
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <form [formGroup]="formGroup" (validSubmit)="onSubmit()">
@@ -355,4 +368,5 @@ export class CustomErrorsComponent implements OnInit {
 ```
 
 ## Roadmap
+
 * Add out of the box support for `ng2-validation` validators

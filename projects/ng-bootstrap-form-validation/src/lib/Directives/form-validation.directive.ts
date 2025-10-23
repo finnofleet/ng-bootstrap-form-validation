@@ -13,8 +13,9 @@ import {
 } from "@angular/forms";
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
-  selector: "[formGroup]"
+    // tslint:disable-next-line:directive-selector
+    selector: "[formGroup]",
+    standalone: false
 })
 export class FormValidationDirective {
   @Input()

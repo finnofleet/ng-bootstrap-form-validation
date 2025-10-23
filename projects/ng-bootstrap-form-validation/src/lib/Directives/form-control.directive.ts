@@ -17,8 +17,9 @@ export function controlPath(name: string, parent: ControlContainer): string[] {
 }
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
-  selector: ".form-control,.form-check-input,.custom-control-input"
+    // tslint:disable-next-line:directive-selector
+    selector: ".form-control,.form-check-input,.custom-control-input",
+    standalone: false
 })
 export class FormControlDirective {
   @Input()
