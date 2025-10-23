@@ -15,12 +15,13 @@ import { MessagesComponent } from "../messages/messages.component";
 import { ErrorMessage } from "../../Models/error-message";
 
 @Component({
-  // tslint:disable:component-selector
-  selector: ".form-group",
-  template: `
+    // tslint:disable:component-selector
+    selector: ".form-group",
+    template: `
     <ng-content></ng-content>
     <bfv-messages *ngIf="!messagesBlock" [messages]="messages"></bfv-messages>
-  `
+  `,
+    standalone: false
 })
 export class FormGroupComponent implements OnInit, AfterContentInit {
   @ContentChildren(FormControlName, { descendants: true })

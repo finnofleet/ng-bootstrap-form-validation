@@ -2,9 +2,10 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators, FormArray } from "@angular/forms";
 
 @Component({
-  selector: "app-bootstrap-four-basic",
-  templateUrl: "./bootstrap-four-basic.component.html",
-  styleUrls: ["./bootstrap-four-basic.component.css"]
+    selector: "app-bootstrap-four-basic",
+    templateUrl: "./bootstrap-four-basic.component.html",
+    styleUrls: ["./bootstrap-four-basic.component.css"],
+    standalone: false
 })
 export class BootstrapFourBasicComponent {
   formGroup = new FormGroup({

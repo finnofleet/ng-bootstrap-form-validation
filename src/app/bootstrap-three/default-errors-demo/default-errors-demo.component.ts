@@ -2,9 +2,10 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, Validators, FormControl } from "@angular/forms";
 
 @Component({
-  selector: "app-default-errors-demo",
-  templateUrl: "./default-errors-demo.component.html",
-  styleUrls: ["./default-errors-demo.component.css"]
+    selector: "app-default-errors-demo",
+    templateUrl: "./default-errors-demo.component.html",
+    styleUrls: ["./default-errors-demo.component.css"],
+    standalone: false
 })
 export class DefaultErrorsDemoComponent {
   formGroup = new FormGroup({

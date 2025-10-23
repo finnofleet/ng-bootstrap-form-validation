@@ -3,20 +3,21 @@ import { BootstrapVersion } from "../../../lib/Enums/BootstrapVersion";
 import { BOOTSTRAP_VERSION } from "../../Tokens/tokens";
 
 @Component({
-  selector: "bfv-messages",
-  template: `
+    selector: "bfv-messages",
+    template: `
     <span [ngClass]="className" *ngFor="let message of messages()">{{
       message
     }}</span>
   `,
-  styles: [
-    `
+    styles: [
+        `
       .invalid-feedback,
       .valid-feedback {
         display: block;
       }
     `
-  ]
+    ],
+    standalone: false
 })
 export class MessagesComponent {
   @Input()
